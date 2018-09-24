@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class Click2Move : MonoBehaviour {
     //Speed per seconds
     [SerializeField] float speed = 0.5f;
     Vector3 targetPoint;
-    bool isMoving = false;
+
 
     // Use this for initialization
     void Start()
@@ -21,17 +21,11 @@ public class Click2Move : MonoBehaviour {
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            if (isMoving) {
                 targetPoint += moveX;
-            }
-            else {
-                isMoving = true;
-                targetPoint = transform.position + moveX;
-            }
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
-        if (transform.position == targetPoint) {
-            isMoving = false;
+        if (transform.position != targetPoint) {
+            transform.position = Vector3.MoveTowards(transform.position, targetPoint, speed * Time.deltaTime);
+
         }
     }
 
