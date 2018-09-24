@@ -14,7 +14,6 @@ public class Click2Move : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        moveX = new Vector3(1, 0, 0);
         targetPoint = transform.position;
     }
 
